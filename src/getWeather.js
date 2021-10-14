@@ -10,7 +10,7 @@ const getWeather = (city, callback) => {
         } else {
             callback(undefined, {
                 city: resData.body.name, 
-                temp: resData.body.main.temp,
+                temp: Math.floor(resData.body.main.temp-273),
                 humidity: resData.body.main.humidity, 
                 description: resData.body.weather[0].description
             });
