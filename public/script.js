@@ -26,8 +26,7 @@ async function getData(city) {
         return;
     }
     else {
-        putData(data.body.name, data.body.main.temp, data.body.main.humidity, data.body.weather[0].description)
-        console.log(data);
+        putData(data.city, data.temp, data.humidity, data.description)
     }
 }
 
