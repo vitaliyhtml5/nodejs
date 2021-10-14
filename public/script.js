@@ -34,7 +34,7 @@ function putData(city, temp, hum, weather) {
     div.style.display = 'block';
     i.style.display = 'none';
     b.textContent = city;
-    weatherData[0].innerHTML = `<span>Temperature: ${Math.floor(temp-273)}&#8451;</span>`;
+    weatherData[0].innerHTML = `<span>Temperature: ${temp}&#8451;</span>`;
     weatherData[1].textContent = `Humidity: ${hum}%`;
     weatherData[2].textContent = `Weather: ${weather}`;
 }
