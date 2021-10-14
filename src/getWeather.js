@@ -8,7 +8,12 @@ const getWeather = (city, callback) => {
         } else if (resData.statusCode === 400) {
             callback({code: 400, message: 'Please type a city'}, undefined);
         } else {
-            callback(undefined, resData);
+            callback(undefined, {
+                city: resData.body.name, 
+                temp: resData.body.main.temp,
+                humidity: resData.body.main.humidity, 
+                description: resData.body.weather[0].description
+            });
         }
     });
 }
