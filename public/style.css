@@ -113,3 +113,17 @@ p {
     color: #3e3e3e;
     line-height: 1.5;
 }
+@media(max-width:400px) {
+    h1 {
+        margin-bottom: 30px;
+    }
+    button {
+        display: block;
+        min-width: 150px !important;
+        margin: 15px auto 25px;
+        padding: 10px;
+    }
+    main {
+        width: 100%;
+    }
+}
