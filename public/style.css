@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: pink;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+h1 {
+    margin-bottom: 40px;
+    color: rebeccapurple;
+    font-size: 42px;
+}
+form input {
+    padding: 7px;
+    border: 1px solid rebeccapurple;
+    border-radius: 4px;
+    color: rebeccapurple;
+    font-size: 17px;
+    text-transform: capitalize;
+}
+form input:focus {
+    border-color: purple;
+}
+form button,
+.link-btn {
+    min-width: 100px;
+    padding: 7px;
+    border: 1px solid purple;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    background-color: rebeccapurple;
+    cursor: pointer;
+}
+form button:active {
+    background-color: purple;
+}
+.link-btn {
+    width: 145px;
+    margin: 20px auto;
+}
+.link-btn:hover {
+    color: #fff !important;
+}
+main {
+    position: relative;
+    width: 300px;
+    min-height: 160px;
+    margin: 20px auto 0;
+    padding: 8px 15px;
+    border: 1px solid purple;
+    border-radius: 6px;
+}
+main * {
+    display: block;
+    text-align: left;
+}
+i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    display: none;
+    padding: 5px;
+    color: rebeccapurple;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
+div {
+    position: relative;
+}
+img {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 60px;
+    height: 50px;
+}
+b {
+    margin-bottom: 10px;
+    color: royalblue;
+    font-size: 32px;
+    text-transform: capitalize;
+}
+span {
+    margin-bottom: 10px;
+    color: #2e2e2e;
+    font-size: 18px;
+}
+a {
+    display: block;
+    margin-top: 20px;
+    color: #2e2e2e;
+    font-size: 14px;
+    text-decoration: none;
+    transition: .4s;
+}
+a:hover {
+    color: rebeccapurple;
+}
+p {
+    color: #3e3e3e;
+    line-height: 1.5;
+}
