@@ -1,14 +1,15 @@
 {
-  "name": "weather_app",
+  "name": "astronomy",
   "version": "1.0.0",
   "description": "Simple weather application",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js" 
   },
   "keywords": [
     "weather",
-    "app"
+    "temperature",
+    "wind"
   ],
   "author": "vitalii",
   "license": "ISC",

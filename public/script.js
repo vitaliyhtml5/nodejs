@@ -1,46 +1,79 @@
-const form = document.querySelector('form');
-const input = document.querySelector('input');
-const button = document.querySelector('button');
-const div = document.querySelector('div');
-const i = document.querySelector('i');
-const b = document.querySelector('b');
-const weatherData = document.querySelectorAll('span');
+const city = document.querySelector('.city');
+const weatherData = document.querySelectorAll('.others-item span');
+const weatherTemp = document.querySelector('.weather-temp');
+const windDirection = document.querySelector('.wind-direction');
+const sunData = document.querySelectorAll('.sun-wrap>span');
+const formMain = document.querySelector('form');
+const errWrap = document.querySelector('.error-wrap');
+const loader = document.querySelector('.loader');
 
-getData('paris');
 
-form.addEventListener('submit', (e) => {
+formMain.addEventListener('submit', (e) => {
+    const inputCity = document.querySelector('input');
     e.preventDefault();
-    getData(input.value);
-});  
 
-async function getData(city) {
-    loadData(div, i);
-    const res = await fetch(`/getWeatherData?city=${city.toLocaleLowerCase()}`);
-    const data = await res.json();
-    
-    if (data.code === 404) {
-        i.innerText = data.message;
-        return;
-    } else if (data.code === 400) {
-        i.innerText = data.message;
-        return;
+    if (inputCity.value !== '') {
+        errWrap.style.display = 'none';
+        getData(inputCity.value);
+    } else {
+        showError('Please type your location', 'img/400.png');
     }
-    else {
-        putData(data.city, data.temp, data.humidity, data.description)
-    }
-}
+});
 
-function putData(city, temp, hum, weather) {
-    div.style.display = 'block';
-    i.style.display = 'none';
-    b.textContent = city;
-    weatherData[0].innerHTML = `<span>Temperature: ${temp}&#8451;</span>`;
-    weatherData[1].textContent = `Humidity: ${hum}%`;
-    weatherData[2].textContent = `Weather: ${weather}`;
-}
-
-function loadData(data, loader) {
-    loader.inner = 'Loading...';
-    data.style.display = 'none';
+getData('London');
+async function getData(cityValue) {
     loader.style.display = 'block';
+    const res = await fetch(`/get_data?city=${cityValue}`);
+    const data = await res.json();
+
+    loader.style.display = 'none';
+    if (data.code === 404 || data.code === 400) {
+        showError('City was not found', 'img/400.png');
+    } else if (data.code === 500) {
+        showError('Oops, something went wrong. Please try again later', 'img/400.png');
+    } else {
+        fillData(data);
+    }
 }
+
+function fillData(data) {
+    city.textContent = data.city;
+    weatherData[0].textContent = `${data.humidity} %`;
+    weatherData[1].textContent = `${data.wind_speed} m/s`;
+    weatherTemp.innerHTML = `${data.temp}<span>&#8451;</span>`
+    sunData[0].textContent = data.sunrise;
+    sunData[1].textContent = data.sunset;
+    windDirection.style.transform = `translateY(-40%) rotate(${data.wind_deg -180}deg)`;
+    setIcon(data.weather, data.day_time);
+}
+
+function setIcon(weather, dayTime) {
+    const icon = document.querySelector('.icon-weather');
+    if (weather === 'Clear' && dayTime === 'day') {
+        icon.style.backgroundImage = 'url(img/sunny.svg)'; 
+    } else if (weather === 'Clear' && dayTime === 'night') {
+        icon.style.backgroundImage = 'url(img/moon_clear.svg)'; 
+    } else if (weather === 'Clouds') {
+        icon.style.backgroundImage = 'url(img/cloudy.svg)'; 
+    } else if (weather === 'Rain') {
+        icon.style.backgroundImage = 'url(img/rainy.svg)'; 
+    } else if (weather === 'Snow') {
+        icon.style.backgroundImage = 'url(img/snowy.svg)'; 
+    } else if ((weather !== 'Clear' || weather !== 'Clouds' || weather !== 'Rain') && dayTime === 'night') {
+        icon.style.backgroundImage = 'url(img/moon_cloudy.svg)'; 
+    } else if ((weather !== 'Clear' || weather !== 'Clouds' || weather !== 'Rain') && dayTime === 'day') {
+        icon.style.backgroundImage = 'url(img/partly-cloudy.svg)'; 
+    } else {
+        icon.style.backgroundImage = 'url(img/cloudy.svg)';
+    }
+}
+
+function showError(text, img, error) {
+    errWrap.style.display = 'block';
+    document.querySelector('.error-wrap h3').textContent = text;
+    document.querySelector('.error-wrap img').src = img;
+}
+
+
+
+
