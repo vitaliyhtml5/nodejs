@@ -20,17 +20,19 @@ formMain.addEventListener('submit', (e) => {
     }
 });
 
-getData('Paris');
+getData('Dnipro');
 async function getData(cityValue) {
     loader.style.display = 'block';
     const res = await fetch(`/get_data?city=${cityValue}`);
     const data = await res.json();
 
     loader.style.display = 'none';
-    if (data.code === 404 || data.code === 400) {
+    if (data.code === 404) {
         showError('City was not found', 'img/400.png');
+    } else if (data.code === 400 && data.message === 'non-english chars') {
+        showError('Only English chars can be put', 'img/400.png');
     } else if (data.code === 500) {
-        showError('Oops, something went wrong. Please try again later', 'img/400.png');
+        showError('Oops, something went wrong. Please try again later', 'img/500.png');
     } else {
         fillData(data);
     }
@@ -53,7 +55,7 @@ function setIcon(weather, dayTime) {
         icon.style.backgroundImage = 'url(img/sunny.svg)'; 
     } else if (weather === 'Clear' && dayTime === 'night') {
         icon.style.backgroundImage = 'url(img/moon_clear.svg)'; 
-    } else if (weather === 'Clouds') {
+    } else if (weather === 'Clouds' || weather === 'Mist') {
         icon.style.backgroundImage = 'url(img/cloudy.svg)'; 
     } else if (weather === 'Rain') {
         icon.style.backgroundImage = 'url(img/rainy.svg)'; 
