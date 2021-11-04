@@ -12,7 +12,7 @@ const getWeatherData = require('./weather_data');
 
 app.get('/get_data', (req, res) => {
     try {
-        if (!validator.isAlpha(req.query.city,'en-US', {ignore:' '})) {
+        if (!validator.isAlpha(req.query.city,'en-US', {ignore:' '}) && !validator.isAlpha(req.query.city,'en-US', {ignore:'-'})) {
             res.status(400).send({code: 400, message:'non-english chars'});
         } else {
             getWeatherData(req.query.city, data => res.status(200).send(data));
