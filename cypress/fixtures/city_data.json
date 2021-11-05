@@ -1,6 +1,6 @@
 {
     "city": ["Dnipro", "Kharkiv", "Kiev", "Minsk", "Chisinau", "Lviv", "London", "Paris", "Antarctica", "Sydney"],
-    "cityWithSymbols": ["Ivano-Frankivsk", "New York"],
+    "cityWithSymbols": ["Ivano-Frankivsk", "New%20York"],
     "incorrectData": {
         "notFound": ["Lorem", "Suncity", "Vice city"],
         "nonEnglish": ["Киев", "Chișinău", "Мінск", "Львів", "León", "北京", "دبي"],

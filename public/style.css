@@ -20,7 +20,7 @@ body {
     padding: 10px 0;
     color: #3e3e3e;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
-    background-color: #edb8ff8a;
+    background-color: rgba(237,184,255,0.54);
 }
 .container {
     max-width: 767px;

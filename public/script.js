@@ -41,12 +41,12 @@ async function getData(cityValue) {
 function fillData(data) {
     city.textContent = data.city;
     weatherData[0].textContent = `${data.humidity} %`;
-    weatherData[1].textContent = `${data.wind_speed} m/s`;
+    weatherData[1].textContent = `${data.windSpeed} m/s`;
     weatherTemp.innerHTML = `${data.temp}<span>&#8451;</span>`
     sunData[0].textContent = data.sunrise;
     sunData[1].textContent = data.sunset;
-    windDirection.style.transform = `translateY(-40%) rotate(${data.wind_deg -180}deg)`;
-    setIcon(data.weather, data.day_time);
+    windDirection.style.transform = `translateY(-40%) rotate(${data.windDeg -180}deg)`;
+    setIcon(data.weather, data.dayTime);
 }
 
 function setIcon(weather, dayTime) {

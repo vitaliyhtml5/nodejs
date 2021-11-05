@@ -15,12 +15,12 @@ const getWeatherData = (cityValue, callback) => {
                     city: resData.body.name,
                     temp: Math.floor(resData.body.main.temp - 273),
                     humidity: resData.body.main.humidity,
-                    wind_speed: Math.round(resData.body.wind.speed),
-                    wind_deg: resData.body.wind.deg,
+                    windSpeed: Math.round(resData.body.wind.speed),
+                    windDeg: resData.body.wind.deg,
                     weather: resData.body.weather[0].main,
                     sunrise: timeData.sunrise,
                     sunset: timeData.sunset,
-                    day_time: timeData.day_time
+                    dayTime: timeData.day_time
                 });
            });
         }   
