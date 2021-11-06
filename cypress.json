@@ -1,4 +1,6 @@
 {
     "baseUrl": "http://127.0.0.1:3000/",
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
+    "screenshotOnRunFailure": false,
+    "video": false
 }

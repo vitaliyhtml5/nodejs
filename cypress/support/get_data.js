@@ -2,6 +2,7 @@ Cypress.Commands.add('getData', city => {
     cy.request({
         method: 'GET',
         url: `/get_data?city=${city}`,
+        failOnStatusCode: false,
         headers: {
             'Content-type': 'application/json'
         }

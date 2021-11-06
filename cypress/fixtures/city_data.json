@@ -2,10 +2,8 @@
     "city": ["Dnipro", "Kharkiv", "Kiev", "Minsk", "Chisinau", "Lviv", "London", "Paris", "Antarctica", "Sydney"],
     "cityWithSymbols": ["Ivano-Frankivsk", "New%20York"],
     "incorrectData": {
-        "notFound": ["Lorem", "Suncity", "Vice city"],
+        "notFound": ["Lorem", "Suncity", "Vicecity"],
         "nonEnglish": ["Киев", "Chișinău", "Мінск", "Львів", "León", "北京", "دبي"],
-        "numeric": ["1", "98", "056", "5248"],
-        "symbols": ["!", "?", ":", ".", ",", ";", "@", ")", "(", "+","*", "&"],
-        "other": ["City125", "Land&Sea", "124%"]
+        "notChars": ["1", "056", "5248","!", "?", ":", ".", ",", ";", "@", ")", "(", "+","*", "&", "City125", "Land&Sea", "124%"]
     }
 }
