@@ -7,7 +7,6 @@ const formMain = document.querySelector('form');
 const errWrap = document.querySelector('.error-wrap');
 const loader = document.querySelector('.loader');
 
-
 formMain.addEventListener('submit', (e) => {
     const inputCity = document.querySelector('input');
     e.preventDefault();

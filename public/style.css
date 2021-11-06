@@ -71,6 +71,7 @@ button:active {
 .weather-widget {
     position: relative;
     width: 360px;
+    min-height: 212px;
     margin: 30px auto;
     padding: 12px 20px;
     border: 2px solid #5959f9;
