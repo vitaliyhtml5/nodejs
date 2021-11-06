@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather application</title>
     <link rel="icon" href="img/favicon.png" type="image/x-icon">
-    <link rel="preload" as="image" href="img/400.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,8 +41,17 @@
             </div>
             <div class="loader"></div>
         </div>
-        <p>Folow the link to <a href="https://vitaliyhtml5-astronomy-app.herokuapp.com/">Astronomy application</a></p>
+        <aside class="fav-menu">
+            <div class="fav-main">
+                <h3>Favorite cities:</h3>
+                <ul></ul>
+            </div>
+            <span class="add-fav">Add the city</span>
+        </aside>
+        <footer>
+            <p>Folow the link to <a href="https://vitaliyhtml5-astronomy-app.herokuapp.com/">Astronomy application</a></p>
+        </footer>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

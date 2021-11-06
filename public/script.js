@@ -1,3 +1,5 @@
+import {getFavCities} from './fav_city.js';
+
 const city = document.querySelector('.city');
 const weatherData = document.querySelectorAll('.others-item span');
 const weatherTemp = document.querySelector('.weather-temp');
@@ -6,6 +8,7 @@ const sunData = document.querySelectorAll('.sun-wrap>span');
 const formMain = document.querySelector('form');
 const errWrap = document.querySelector('.error-wrap');
 const loader = document.querySelector('.loader');
+getFavCities();
 
 formMain.addEventListener('submit', (e) => {
     const inputCity = document.querySelector('input');
@@ -75,6 +78,4 @@ function showError(text, img, error) {
     document.querySelector('.error-wrap img').src = img;
 }
 
-
-
-
+export {getData};
