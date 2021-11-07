@@ -219,38 +219,38 @@ hr {
     margin-bottom: 10px;
     color: #800080;
 }
-.fav-menu ul {
+.fav-cities {
     display: flex;
     flex-direction: column;
     width: 180px;
 }
-.fav-menu li {
+.fav-city__block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.fav-cities span {
     position: relative;
     overflow: hidden;
     align-self: baseline;
     max-width: 150px;
-    margin-bottom: 8px;
-    padding-left: 20px;
     font-size: 18px;
     white-space: nowrap;
     text-overflow: ellipsis;
     transition: .4s;
     cursor: pointer;
 }
-.fav-menu li>button {
-    position: absolute;
-    top: 50%;
-    left: 0;
+.fav-cities button {
+    position: relative;
     width: 15px;
     height: 15px;
     padding: 0;
     border: none;
     background-color: transparent;
-    transform: translateY(-50%);
     cursor: pointer;
 }
-.fav-menu li>button::before,
-.fav-menu li>button::after {
+.fav-cities button::before,
+.fav-cities button::after {
     position: absolute;
     content: '';
     top: 50%;
@@ -262,14 +262,14 @@ hr {
     transform: translateY(-50%) rotate(45deg);
     transition: .4s;
 }
-.fav-menu li>button:hover::before,
-.fav-menu li>button:hover::after {
+.fav-cities button:hover::before,
+.fav-cities button:hover::after {
     opacity: 1;
 }
-.fav-menu li>button::after {
+.fav-cities button::after {
     transform: translate(-50%,-50%) rotate(-45deg); 
 }
-.fav-menu li:hover {
+.fav-cities span:hover {
     color: #db7093;
 }
 .add-fav {

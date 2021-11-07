@@ -2,14 +2,13 @@ import {getData} from './script.js';
 
 const favMain = document.querySelector('.fav-main');
 const addBtn = document.querySelector('.add-fav');
-let favMainList = document.querySelector('.fav-main ul');
+let favMainList = document.querySelector('.fav-cities');
 let cityArr = [];
-let cityList;
-let getCityStorage = () => localStorage.getItem('favCity');
 
 function getFavCities() {
-    if (getCityStorage() !== null) {
+    if (localStorage.getItem('favCity') !== null) {
         showCity();
+        cityArr = localStorage.getItem('favCity').split(',');
     } else {
         getEmptyCity();
     }
@@ -18,15 +17,15 @@ function getFavCities() {
 //Show city
 function showCity() {
     favMain.style.display = 'block';
-    const listCityArr = getCityStorage().split(',');
+    const listCityArr = localStorage.getItem('favCity').split(',');
     favMainList.innerHTML = '';
     for(let i = 0; i < listCityArr.length; i++) {
-        favMainList.innerHTML += `<li>${listCityArr[i]}<button></button></li>`;
+        favMainList.innerHTML += `<div class="fav-city__block"><button></button><span>${listCityArr[i]}</span></div>`;
     }
     removeCity();
 
     //Get weather by favorite city
-    document.querySelectorAll('.fav-main ul li').forEach(el => {
+    document.querySelectorAll('.fav-cities span').forEach(el => {
         el.onclick = () => getData(el.textContent);
     });
 }
@@ -35,7 +34,7 @@ function showCity() {
 addBtn.addEventListener('click', addCity);
 function addCity() {  
     const city =  document.querySelector('.city').textContent;
-    let cityList = getCityStorage();
+    let cityList = localStorage.getItem('favCity');
 
     if (cityList !== null) {
         cityArr = cityList.split(',');
@@ -52,20 +51,18 @@ function addCity() {
 
 //Remove city
 function removeCity() {
-    document.querySelectorAll('.fav-main button').forEach((el, index) => {
-        const cityItem = document.querySelectorAll('.fav-main ul li');
+    document.querySelectorAll('.fav-cities button').forEach((el, index) => {
+        const cityItem = document.querySelectorAll('.fav-city__block');
         el.onclick = (e) => {
             e.preventDefault();
-            if (cityItem.length === 1) {
-                localStorage.removeItem('favCity');
-                favMainList.innerHTML = '';
-                cityArr = [];
-                getEmptyCity();
-            } else if (cityItem.length > 1) {
-                cityItem[index].style.display = 'none';
-                cityArr.splice(index, 1);
+            cityItem[index].remove();
+            cityArr.splice(index, 1);
+
+            if (cityArr.length > 0) {
                 localStorage.setItem('favCity', cityArr);
-                showCity();
+            } else {
+                localStorage.removeItem('favCity');
+                getEmptyCity();
             }
         }
     });
