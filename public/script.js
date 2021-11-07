@@ -96,7 +96,6 @@ function getFavCities() {
         getEmptyCity();
     }
 
-
     //Show city
     function showCity() {
         favMain.style.display = 'block';

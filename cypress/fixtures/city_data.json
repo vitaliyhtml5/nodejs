@@ -1,5 +1,5 @@
 {
-    "city": ["Dnipro", "Kharkiv", "Kiev", "Minsk", "Chisinau", "Lviv", "London", "Paris", "Antarctica", "Sydney"],
+    "city": ["Dnipro", "Kharkiv", "Kyiv", "Minsk", "Lviv", "London", "Paris", "Antarctica", "Sydney"],
     "cityWithSymbols": ["Ivano-Frankivsk", "New%20York"],
     "incorrectData": {
         "notFound": ["Lorem", "Suncity", "Vicecity"],
