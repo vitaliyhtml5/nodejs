@@ -4,6 +4,7 @@ const favMain = document.querySelector('.fav-main');
 const addBtn = document.querySelector('.add-fav');
 let favMainList = document.querySelector('.fav-cities');
 let cityArr = [];
+let menuOpenned = false;
 
 function getFavCities() {
     if (localStorage.getItem('favCity') !== null) {
@@ -26,7 +27,12 @@ function showCity() {
 
     //Get weather by favorite city
     document.querySelectorAll('.fav-cities span').forEach(el => {
-        el.onclick = () => getData(el.textContent);
+        el.onclick = () => {
+            getData(el.textContent);
+            if (menuOpenned) {
+                closeMenu();
+            }
+        }
     });
 }
 
@@ -70,6 +76,22 @@ function removeCity() {
 
 function getEmptyCity() {
     favMain.style.display = 'none';
+}
+
+// Hamburger menu for fav cities
+const openHamburger = document.querySelector('.open-btn');
+const closeHamburger = document.querySelector('.fav-menu .close-btn');
+const favMenu = document.querySelector('.fav-menu');
+
+openHamburger.addEventListener('click', () => {
+    favMenu.style.animation = '0.7s openMenu ease-out forwards';
+    menuOpenned = true;
+});
+
+closeHamburger.addEventListener('click', closeMenu);
+
+function closeMenu() {
+    favMenu.style.animation = '0.7s closeMenu ease-out forwards';
 }
 
 export {getFavCities};
