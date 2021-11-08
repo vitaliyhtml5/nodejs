@@ -15,6 +15,7 @@ describe('User uses Favorite list option', () => {
         cy.get('.fav-main').should('have.css', 'display', 'none');
         cy.chooseCity(city);
         cy.wait('@getRes').then(() => {
+            cy.wait(1000);
             cy.get('.add-fav').click({force: true});
             cy.get('.city').then(name => {
                 cy.get('.fav-main').should('not.have.css', 'display', 'none');
@@ -83,6 +84,7 @@ describe('User uses Favorite list option', () => {
         cy.intercept(`http://127.0.0.1:3000/get_data?city=${city}`).as('getRes');
         cy.chooseCity(city);
         cy.wait('@getRes').then(() => {
+            cy.wait(1000);
             cy.get('.add-fav').click({force: true});
             cy.get('.city').then(name => {
                 cy.get('.fav-city__block span').eq(item).should('have.text', name.text());
