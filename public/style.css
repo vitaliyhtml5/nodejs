@@ -381,6 +381,9 @@ footer a:hover {
         background: url(img/star.svg) 50%/75% no-repeat;
         display: block !important;
     }
+    .open-btn:hover {
+        background-color: transparent;
+    }
     body {
         padding-top: 15px;
     }
