@@ -330,6 +330,12 @@ footer a:hover {
     .fav-city__block span {
         font-size: 20px;
     }
+    .fav-cities {
+        width: 300px;
+    }
+    .fav-cities span {
+        max-width: 95%;
+    }
     .fav-cities span:hover,
     .add-fav:hover {
         color: inherit;
