@@ -3,7 +3,7 @@ const request = require('request');
 const getTimeData = require('./time_data');
 
 const getWeatherData = (cityValue, callback) => {
-    const urlReq = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=bfc01abb9d07f1618283f28a3e24c038`;
+    const urlReq = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=`;
     request({url: urlReq, json: true}, (errData, resData) => {
         if (resData.statusCode === 404) {
             callback({code: 404, message: 'city not found'}, undefined);
