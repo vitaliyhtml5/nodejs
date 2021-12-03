@@ -1,7 +1,7 @@
 const request = require('request');
 
 const getTimeData = (cityValue, callback) => {
-    const urlReqTime = `https://api.ipgeolocation.io/astronomy?apiKey=abd6fe44dc664d66903bda88f8a7dbee&location=${cityValue}'`;
+    const urlReqTime = `https://api.ipgeolocation.io/astronomy?apiKey=&location=${cityValue}'`;
 
     request({url: urlReqTime, json: true}, (errDataTime, resDataTime) => {
         try {
