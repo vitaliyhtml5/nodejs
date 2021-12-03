@@ -2,7 +2,6 @@ const request = require('request');
 
 const getTimeData = (cityValue, callback) => {
     const urlReqTime = `https://api.ipgeolocation.io/astronomy?apiKey=abd6fe44dc664d66903bda88f8a7dbee&location=${cityValue}'`;
-
     request({url: urlReqTime, json: true}, (errDataTime, resDataTime) => {
         try {
             const timeData = [resDataTime.body.current_time,resDataTime.body.sunrise,resDataTime.body.sunset];
